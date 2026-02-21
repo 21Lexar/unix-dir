@@ -4,12 +4,16 @@
 #include "struct.h"
 
 
-file_node* insert_file(directory *parent_directory, file* file_to_insert){
+file_node* insert_file(
+        directory *parent_directory, 
+        file* file_to_insert)
+        {
+
         if(parent_directory == NULL){
                 return NULL;
         }
 
-        file_node* new_file = (file_node*)malloc(sizeof(file_node));
+        file_node* new_file = (file_node*)calloc(1, sizeof(file_node));
 
         if(parent_directory->file_list == NULL){
                 parent_directory->file_list = new_file;
@@ -20,19 +24,50 @@ file_node* insert_file(directory *parent_directory, file* file_to_insert){
                 return new_file;
         }
 
-
-        for(file_node *file_itr = parent_directory->file_list; file_itr->next_file != NULL; file_itr->next_file){
+        for(
+                file_node *file_itr = parent_directory->file_list; 
+                file_itr->next_file != NULL; 
+                file_itr = file_itr->next_file)
+                {
+                        
                 file_itr->next_file = new_file;
                 new_file->prev_file = file_itr;
                 new_file->next_file = NULL;
+                return new_file;
         }
+        
 }
 
-file_node* delete_file(directory *parent_directory, file* file_to_delete){
-        if(file_to_delete == NULL || parent_directory == NULL){
+file_node* delete_file(
+        directory *parent_directory,
+        file* file_to_delete)
+        {
+
+        if(parent_directory == NULL){
                 return NULL;
         }
-         
+
+        if(file_to_delete == NULL){
+                return NULL;
+        }
+
+        for(
+                file_node* file_itr = parent_directory->file_list;
+                file_itr->next_file != NULL; 
+                file_itr = file_itr->next_file)
+                {
+
+                if(file_itr->file_ptr == file_to_delete){
+                        file_node* temp_prev = file_itr->prev_file;
+                        temp_prev->next_file = file_itr->next_file; 
+                        file_itr->prev_file = temp_prev;
+                        file_itr->next_file = NULL;
+                        file_itr->prev_file = NULL;
+                        free(file_itr);
+                        file_itr = NULL;
+
+                }
+        }      
 }
 
 
