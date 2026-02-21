@@ -1,0 +1,39 @@
+#ifndef LIST_H
+#define LIST_H
+
+#include "struct.h"
+
+
+file_node* insert_file(directory *parent_directory, file* file_to_insert){
+        if(parent_directory == NULL){
+                return NULL;
+        }
+
+        file_node* new_file = (file_node*)malloc(sizeof(file_node));
+
+        if(parent_directory->file_list == NULL){
+                parent_directory->file_list = new_file;
+                new_file->file_ptr->parent = parent_directory;
+                new_file->file_ptr = file_to_insert;
+                new_file->next_file = NULL;
+                new_file->prev_file = NULL;
+                return new_file;
+        }
+
+
+        for(file_node *file_itr = parent_directory->file_list; file_itr->next_file != NULL; file_itr->next_file){
+                file_itr->next_file = new_file;
+                new_file->prev_file = file_itr;
+                new_file->next_file = NULL;
+        }
+}
+
+file_node* delete_file(directory *parent_directory, file* file_to_delete){
+        if(file_to_delete == NULL || parent_directory == NULL){
+                return NULL;
+        }
+         
+}
+
+
+#endif
