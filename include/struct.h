@@ -1,6 +1,8 @@
 #ifndef STRUCT_H
 #define STRUCT_H
-#include<vector>
+
+#include<stdlib.h>
+#include<time.h>
 
 enum file_permission {
     READ,
@@ -8,18 +10,28 @@ enum file_permission {
     READ_WRITE,
 };
 
-struct file{
+typedef struct{
     char* name;
     char* type;
     directory *parent;
     char* owner;
-    file_permission permission;
-};
+    enum file_permission permission;
+    time_t time_created;
+    time_t time_modified;
+} file;
 
-struct directory{
+typedef struct{
     char* name;
-    directory *parent;
-    std::vector<directory> *sub_directory;
-};
+    directory *parent_directory;
+    directory *sub_directory;
+    file_node* file_list;
+} directory;
+
+typedef struct{
+    file* file_ptr;
+    file_node* prev_file;
+    file_node* next_file;
+} file_node;
+
 
 #endif
