@@ -10,6 +10,7 @@ enum file_permission {
     READ_WRITE,
 };
 
+
 typedef struct{
     char* name;
     char* type;
@@ -20,12 +21,14 @@ typedef struct{
     time_t time_modified;
 } file;
 
+
 typedef struct{
     char* name;
     directory *parent_directory;
     directory *sub_directory;
     file_node* file_list;
 } directory;
+
 
 typedef struct{
     file* file_ptr;
