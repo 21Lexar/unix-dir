@@ -3,6 +3,7 @@
 
 #include "struct.h"
 
+// Implementing linked list to store a list of files.
 
 file_node* insert_file(
         directory *parent_directory, 
