@@ -45,3 +45,12 @@ Although I haven't implemented all the cases, which I will have to do in the fut
 
 Renamed the files to increase readabiltiy. 
 
+
+[22/2/26]
+Added a comment in file_list.h
+
+I also planned to use linked list for sub_directories. so I just declared its struct rn. 
+
+Bye
+
+
