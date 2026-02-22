@@ -1,0 +1,13 @@
+- Implement all file delete cases in file_list.h
+        file_to_delete is the only file.
+        file_to_delete is the last file.
+
+- Implement circular linked list for the file_list.
+
+- Implement a circular linked list for sub directories. 
+        declare insert() delete() functions.
+        implement insert() delete() functions.
+        all cases of insertion
+        all cases of deletion
+
+
