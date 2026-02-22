@@ -1,0 +1,47 @@
+[12/2/26]
+Recently I have been thinking how does the filesystem work in my favourite operating system.
+After watching a fireship video (super cool dude) on the linux filesystem. I learned that UNIX FS is just a tree.
+Then came the difficult part of doing homework. Homework is extremely necessary in anything I make.
+So, I searched what kind of tree is used? Why is it used? What information does a directory contain? What information does a file contain?
+How does a file is linked inside a directory?
+After finding answers to these questions, I planned how will I create this project. Planning is more important.
+
+
+[17/2/26]
+My planning is all done, Now its time for implementation. 
+
+PS: I stay very busy due to my studies, and other hobbies, but still I'll try to give it as much time as I can.
+
+My initial plan is to create header files and implement functions in it. However, I also know that these functions must be shifted to there respective files.
+
+So at first I created a struct.h header, in this header file I implemented a struct.h file and being a C++ boomer I am, I used vector, just to realise that 
+there are no vectors in the C programming language. This shows my boomer level skills in C though, and somehow its pretty funny, because to a person who
+doesnt even know C, writing the whole gigantic project in it will be a fun process. 
+I also implemented seperate structs for both file and directory. Both containing their respective information.
+And an enum for file permission.
+That is all I did today, Bye
+
+
+[21/2/26]
+Today I had a lot of free time to spend on this project and so I did. 
+
+I spent a lot of time experimenting on how to create a dynamic array of files within a directory. I tried using vectors but I was dumbfounded that C doesn't
+have its own library of any sort of dynamic array. So, what I did was, I implemented a linked list of files to stores these files 
+(although I plan to use circular linked list in the future). 
+And created a list.h header file for the list. 
+
+As I previous mentioned, I am implementing the whole implementation in these header files, however I will transfer them to the .C file later.
+
+In this file, I created a insert_file() function to insert a file to the list.
+I also just very basically declared delete_file() functions to delete a file from the list.
+
+Since, the whole UNIX filesystem uses tree. I then created a tree.h header to declare tree related functions in it. 
+
+Also to increase code readabiltiy, I did some clean code formatting to make sure te code remains readable. I have tried to reduce code's reading difficulty 
+as much as I can and I will make sure the code remains readable despite its changes and all.
+
+Then I also implemented delete_file() function to some extent. Just like a normal linked list node deletion. 
+Although I haven't implemented all the cases, which I will have to do in the future.
+
+Renamed the files to increase readabiltiy. 
+
