@@ -14,11 +14,11 @@ enum file_permission {
 typedef struct{
     char* name;
     char* type;
-    directory *parent;
     char* owner;
     enum file_permission permission;
     time_t time_created;
     time_t time_modified;
+    directory *parent;
 } file;
 
 
@@ -35,6 +35,12 @@ typedef struct{
     file_node* prev_file;
     file_node* next_file;
 } file_node;
+
+typedef struct{
+    directory* dir_list;
+    sub_dir_node* prev_dir;
+    sub_dir_node* next_dir;
+} sub_dir_node;
 
 
 #endif
